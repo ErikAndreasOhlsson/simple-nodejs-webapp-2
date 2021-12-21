@@ -1,0 +1,20 @@
+{
+  "name": "simple-nodejs-webapp-2",
+  "version": "1.0.0",
+  "description": "Test of nodejs as webserver",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErikAndreasOhlsson/simple-nodejs-webapp-2.git"
+  },
+  "author": "Andreas Ohlsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErikAndreasOhlsson/simple-nodejs-webapp-2/issues"
+  },
+  "homepage": "https://github.com/ErikAndreasOhlsson/simple-nodejs-webapp-2#readme"
+}
