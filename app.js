@@ -1,12 +1,17 @@
-const fs = require("fs");
-const path = require("path");
-const http = require("http");
+'use strict'
+
+import { resolve, normalize, join } from "path";
+import { createServer } from "http";
+import * as fs from "fs";
+
 const staticBasePath = "./www";
 const PORT = process.env.PORT || 5000;
+
 const staticServe = function (req, res) {
-  let resolvedBase = path.resolve(staticBasePath);
-  let safeSuffix = path.normalize(req.url).replace(/^(\.\.[\/\\])+/, "");
-  let fileLoc = path.join(resolvedBase, safeSuffix);
+  let resolvedBase = resolve(staticBasePath);
+  let safeSuffix = normalize(req.url).replace(/^(\.\.[\/\\])+/, "");
+  let fileLoc = join(resolvedBase, safeSuffix);
+
   fs.readFile(fileLoc, function (err, data) {
     if (err) {
       res.writeHead(404, "Not Found");
@@ -18,7 +23,8 @@ const staticServe = function (req, res) {
     return res.end();
   });
 };
-const httpServer = http.createServer(staticServe);
+
+const httpServer = createServer(staticServe);
 httpServer.listen(PORT, () => {
   console.log("server listening on port 5000");
 });
